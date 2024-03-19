@@ -1,6 +1,6 @@
 # Ex.No: 10  Logic Programming –  Simple queries from facts and rules
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 09/03/2024                                                                           
+### REGISTER NUMBER : 212221040145
 ### AIM: 
 To write a prolog program to find the answer of query. 
 ###  Algorithm:
@@ -21,9 +21,21 @@ Construct the FOL representation for the following sentences <br>
 5.	 Bill eats peanuts  <br> 
    Convert into clause form and Prove that John like Apple by using Prolog. <br> 
 ### Program:
-
+```
+likes(john,X):-
+food(X).
+eats(bill,X):-
+eats(sue,X).
+eats(Y,X):-
+food(X).
+eats(bill,peanuts).
+food(apple).
+food(chicken).
+food(peanuts).
+```
 
 ### Output:
+![SimpleQueries1](https://github.com/MilitantVlr/AI_Lab_2023-24/assets/121683193/199c2ff7-ab71-4238-a513-5cac82c4a57f)
 
 ### Task 2:
 Consider the following facts and represent them in predicate form: <br>              
@@ -34,18 +46,36 @@ Consider the following facts and represent them in predicate form: <br>
 Convert the facts in predicate form to clauses and then prove by resolution: “Steve likes BK301 course”<br> 
 
 ### Program:
-
+```
+likes(steve,X):-
+easycourse(X).
+hard(sciencecourse).
+easycourse(X):-
+course(X,dept(havefun)).
+course(bk301,dept(havefun)).
+```
 
 ### Output:
+![SimpleQueries2](https://github.com/MilitantVlr/AI_Lab_2023-24/assets/121683193/8f9ce637-0df4-4ad4-8e78-854780355604)
 
 ### Task 3:
 Consider the statement <br> 
 “This is a crime for an American to sell weapons to hostile nations. The Nano , enemy of America has some missiles and its missiles were sold it by Colonal West who is an American” <br> 
 Convert to Clause form and prove west is criminal by using Prolog.<br> 
 ### Program:
-
+```
+criminal(X):-american(X),weapon(Y),hostile(Z),sells(X,Y,Z).
+weapon(Y):-missile(Y).
+hostile(Z):-enemy(Z,X).
+sells(west,Y,nano):-missile(Y),owns(nano,Y).
+missile(m).
+owns(nano,m).
+enemy(nano,america).
+american(west).
+```
 
 ### Output:
+![SimpleQueries3](https://github.com/MilitantVlr/AI_Lab_2023-24/assets/121683193/1b376ac2-2c62-4670-a18f-8f75fd302164)
 
 ### Result:
 Thus the prolog programs were executed successfully and the answer of query was found.
